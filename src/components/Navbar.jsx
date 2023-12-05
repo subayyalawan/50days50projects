@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -8,7 +9,7 @@ const Navbar = () => {
         <div className="px-8 py-3 flex justify-between text-xl">
           <div className="navbar-logo">
             <h3 className="font-bold uppercase text-gray-900 cursor-pointer">
-              50 days <span className="font-medium text-sm">(50 projects)</span>
+              <Link to="">50 days <span className="font-medium text-sm text-[#f14536]">(50 projects)</span></Link>
             </h3>
           </div>
 
