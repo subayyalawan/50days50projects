@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <h1 className="pt-20 text-3xl font-bold capitalize text-center text-gray-900">
+      <h1 className="pt-20 text-3xl font-bold capitalize text-center text-[#f14536]">
         Welcome to my 50 days 50 projects challenge
       </h1>
       <p className="text-center text-lg mt-3 text-gray-900">
