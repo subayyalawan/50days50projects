@@ -1,29 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const ChoicePicker = () => {
   const [randomChoice, setRandomChoice] = useState("");
   const [choices, setChoices] = useState([]);
 
-  //   console.log(randomChoice);
-
-  const handleEnterKey = (e) => {
-    if (e.key === "Enter") {
-      createTags();
-    }
-  };
-
-  const createTags = () => {
+  const createTags = (e) => {
     const tags = randomChoice
+
       // for putting the value in an array separating by a comma
       .split(",")
+
       // to remove any empty values
       .filter((tag) => tag.trim() !== "")
+
       // to remove space in side the values
       .map((tag) => tag.trim());
     setChoices(tags);
-    //   console.log(tags);
-    setRandomChoice("");
+
+    if (e.key === "Enter") {
+      setTimeout(() => {
+        setRandomChoice("");
+      }, 100);
+      randomSelect();
+    }
   };
+
+  const choicesRef = useRef([]);
+  //   choicesRef.current = [];
+
+  const randomSelect = () => {
+    const times = 30;
+    let intCount = 100;
+
+    const interval = setInterval(() => {
+      const randomChoice =
+        choicesRef.current[
+          Math.floor(Math.random() * choicesRef.current.length)
+        ];
+      console.log(choicesRef.current[randomChoice]);
+
+      // hightlight
+
+      // unhightlight
+    }, intCount);
+    console.log(choicesRef.current);
+  };
+
+  //   console.log(choicesRef.current);
+
+  const pickRandomChoice = () => {};
 
   return (
     <div className="flex items-center flex-col">
@@ -45,14 +70,15 @@ const ChoicePicker = () => {
         placeholder="Enter Your Choice"
         value={randomChoice}
         onChange={(e) => setRandomChoice(e.target.value)}
-        onKeyDown={handleEnterKey}
+        onKeyDown={createTags}
       ></textarea>
 
       <ul className="tags flex flex-wrap w-2/5 gap-6 mt-10 justify-center text-gray-900">
         {choices.map((choice, index) => {
           return (
-            // console.log("choice ", choice);
             <li
+              // ref={AddToRefs}
+              ref={(ele) => (choicesRef.current[index] = ele)}
               key={index}
               className="bg-white px-5 py-2 rounded-xl font-semibold shadow-lg capitalize"
             >
