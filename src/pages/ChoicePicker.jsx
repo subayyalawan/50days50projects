@@ -3,6 +3,9 @@ import React, { useState, useRef, useEffect } from "react";
 const ChoicePicker = () => {
   const [randomChoice, setRandomChoice] = useState("");
   const [choices, setChoices] = useState([]);
+  const choicesRef = useRef([]);
+
+  const [hightlight, setHightlight] = useState(false);
 
   const createTags = (e) => {
     const tags = randomChoice
@@ -20,30 +23,55 @@ const ChoicePicker = () => {
     if (e.key === "Enter") {
       setTimeout(() => {
         setRandomChoice("");
-      }, 100);
+      }, 300);
       randomSelect();
     }
   };
 
-  const choicesRef = useRef([]);
-  //   choicesRef.current = [];
-
   const randomSelect = () => {
     const times = 30;
-    let intCount = 100;
+    let int = 150;
 
     const interval = setInterval(() => {
-      const randomChoice =
-        choicesRef.current[
-          Math.floor(Math.random() * choicesRef.current.length)
-        ];
-      console.log(choicesRef.current[randomChoice]);
+      const randomChoice = pickRandomLi();
+      hightlightFunction(randomChoice);
 
-      // hightlight
+      setTimeout(() => {
+        unhightlightFunction(randomChoice);
+      }, 300);
+    }, int);
 
-      // unhightlight
-    }, intCount);
-    console.log(choicesRef.current);
+    setTimeout(() => {
+      clearInterval(interval);
+
+      setTimeout(() => {
+        const randomChoice = pickRandomLi();
+
+        hightlightFunction(randomChoice);
+      }, int);
+    }, int * times);
+  };
+
+  const pickRandomLi = () => {
+    return choicesRef.current[
+      Math.floor(Math.random() * choicesRef.current.length)
+    ];
+  };
+
+  const hightlightFunction = (tag) => {
+    // setHightlight(true);
+    tag.classList.add("bg-[#f14536]");
+    tag.classList.add("text-white");
+    tag.classList.remove("bg-white");
+    tag.classList.remove("text-gray-900");
+  };
+
+  const unhightlightFunction = (tag) => {
+    // setHightlight(true);
+    tag.classList.remove("bg-[#f14536]");
+    tag.classList.remove("text-white");
+    tag.classList.add("bg-white");
+    tag.classList.add("text-gray-900");
   };
 
   //   console.log(choicesRef.current);
@@ -80,7 +108,11 @@ const ChoicePicker = () => {
               // ref={AddToRefs}
               ref={(ele) => (choicesRef.current[index] = ele)}
               key={index}
-              className="bg-white px-5 py-2 rounded-xl font-semibold shadow-lg capitalize"
+              className={`${
+                hightlight
+                  ? "bg-[#f14536] text-white"
+                  : "bg-white text-gray-900"
+              }  px-5 py-2 rounded-xl font-semibold shadow-lg capitalize transition-all duration-100`}
             >
               {choice}
             </li>
