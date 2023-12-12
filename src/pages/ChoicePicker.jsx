@@ -5,8 +5,6 @@ const ChoicePicker = () => {
   const [choices, setChoices] = useState([]);
   const choicesRef = useRef([]);
 
-  const [hightlight, setHightlight] = useState(false);
-
   const createTags = (e) => {
     const tags = randomChoice
 
@@ -18,6 +16,9 @@ const ChoicePicker = () => {
 
       // to remove space in side the values
       .map((tag) => tag.trim());
+
+      choicesRef.current = Array.from({length: tags.length}, (_, index)=>choicesRef.current[index] || null)
+
     setChoices(tags);
 
     if (e.key === "Enter") {
@@ -46,6 +47,7 @@ const ChoicePicker = () => {
 
       setTimeout(() => {
         const randomChoice = pickRandomLi();
+        console.log(randomChoice);
 
         hightlightFunction(randomChoice);
       }, int);
@@ -55,7 +57,8 @@ const ChoicePicker = () => {
   const pickRandomLi = () => {
     return choicesRef.current[
       Math.floor(Math.random() * choicesRef.current.length)
-    ];
+    ]
+    // console.log(Math.floor(Math.random() * choicesRef.current.length));
   };
 
   const hightlightFunction = (tag) => {
