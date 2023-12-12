@@ -1,11 +1,14 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const Layout = () => {
+  const location = useLocation()
+  const hideNavBar = location.pathname === '/Animated-Navigatiton'
+
   return (
     <>
-      <Navbar />
+      {!hideNavBar && <Navbar />}
       <Outlet />
     </>
   );

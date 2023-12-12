@@ -29,8 +29,8 @@ const ChoicePicker = () => {
   };
 
   const randomSelect = () => {
-    const times = 30;
-    let int = 150;
+    const times = 15;
+    let int = 100;
 
     const interval = setInterval(() => {
       const randomChoice = pickRandomLi();
@@ -108,11 +108,7 @@ const ChoicePicker = () => {
               // ref={AddToRefs}
               ref={(ele) => (choicesRef.current[index] = ele)}
               key={index}
-              className={`${
-                hightlight
-                  ? "bg-[#f14536] text-white"
-                  : "bg-white text-gray-900"
-              }  px-5 py-2 rounded-xl font-semibold shadow-lg capitalize transition-all duration-100`}
+              className="px-5 py-2 rounded-xl font-semibold shadow-lg capitalize transition-all duration-100"
             >
               {choice}
             </li>

@@ -16,9 +16,14 @@ const Home = () => {
             Random Choice Picker
           </li>
         </Link>
-        <li className="capitalize bg-white px-4 py-2 rounded-xl font-semibold hover:bg-[#f14536] hover:text-white transition-all duration-150 shadow-lg cursor-pointer">
-          Random Choice Picker
-        </li>
+
+        <Link to="/Animated-Navigatiton">
+          <li className="capitalize bg-white px-4 py-2 rounded-xl font-semibold hover:bg-[#f14536] hover:text-white transition-all duration-150 shadow-lg cursor-pointer">
+            Animated Navigation
+          </li>
+        </Link>
+
+
       </ul>
     </>
   );

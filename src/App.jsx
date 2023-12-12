@@ -9,6 +9,7 @@ import {
 import Layout from "./components/Layout";
 import ChoicePicker from "./pages/ChoicePicker";
 import Home from "./pages/Home";
+import AnimatedNav from "./pages/AnimatedNav";
 
 const App = () => {
   // const naviagte = useNavigate();
@@ -19,6 +20,7 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route path="" element={<Home />} />
         <Route path="random-choice-picker" element={<ChoicePicker />} />
+        <Route path="Animated-Navigatiton" element={<AnimatedNav />} />
       </Route>
     )
   );
