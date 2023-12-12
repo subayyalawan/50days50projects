@@ -5,6 +5,8 @@ const ChoicePicker = () => {
   const [choices, setChoices] = useState([]);
   const choicesRef = useRef([]);
 
+  const [hightlight, setHightlight] = useState(false);
+
   const createTags = (e) => {
     const tags = randomChoice
 
@@ -17,7 +19,7 @@ const ChoicePicker = () => {
       // to remove space in side the values
       .map((tag) => tag.trim());
 
-      choicesRef.current = Array.from({length: tags.length}, (_, index)=>choicesRef.current[index] || null)
+    // choicesRef.current = Array.from({length: tags.length}, (_, index)=>choicesRef.current[index] || null)
 
     setChoices(tags);
 
@@ -25,16 +27,27 @@ const ChoicePicker = () => {
       setTimeout(() => {
         setRandomChoice("");
       }, 300);
+
+      // setRandomChoice((prevRandomChoice) => {
+      //   setTimeout(() => {
+      //     if (prevRandomChoice === randomChoice) {
+      //       setRandomChoice("");
+      //       randomSelect();
+      //     }
+      //   }, 300);
+      //   return prevRandomChoice;
+      // });
       randomSelect();
     }
   };
 
   const randomSelect = () => {
-    const times = 15;
-    let int = 100;
+    const times = 10;
+    let int = 300;
 
     const interval = setInterval(() => {
       const randomChoice = pickRandomLi();
+      console.log(randomChoice);
       hightlightFunction(randomChoice);
 
       setTimeout(() => {
@@ -47,7 +60,8 @@ const ChoicePicker = () => {
 
       setTimeout(() => {
         const randomChoice = pickRandomLi();
-        console.log(randomChoice);
+
+        // console.log(randomChoice);
 
         hightlightFunction(randomChoice);
       }, int);
@@ -57,7 +71,7 @@ const ChoicePicker = () => {
   const pickRandomLi = () => {
     return choicesRef.current[
       Math.floor(Math.random() * choicesRef.current.length)
-    ]
+    ];
     // console.log(Math.floor(Math.random() * choicesRef.current.length));
   };
 
@@ -76,10 +90,6 @@ const ChoicePicker = () => {
     tag.classList.add("bg-white");
     tag.classList.add("text-gray-900");
   };
-
-  //   console.log(choicesRef.current);
-
-  const pickRandomChoice = () => {};
 
   return (
     <div className="flex items-center flex-col">
@@ -104,14 +114,14 @@ const ChoicePicker = () => {
         onKeyDown={createTags}
       ></textarea>
 
-      <ul className="tags flex flex-wrap w-2/5 gap-6 mt-10 justify-center text-gray-900">
+      <ul className="tags flex flex-wrap w-2/5 gap-6 mt-10 justify-center">
         {choices.map((choice, index) => {
           return (
             <li
               // ref={AddToRefs}
               ref={(ele) => (choicesRef.current[index] = ele)}
               key={index}
-              className="px-5 py-2 rounded-xl font-semibold shadow-lg capitalize transition-all duration-100"
+              className="px-5 py-2 rounded-xl font-semibold shadow-lg capitalize bg-white text-gray-900"
             >
               {choice}
             </li>
