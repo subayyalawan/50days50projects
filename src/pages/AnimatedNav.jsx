@@ -73,16 +73,16 @@ const AnimatedNav = () => {
           } circle flex items-end justify-between bg-[#f14536] w-52 h-52 px-12 py-10 rounded-full fixed 
              transition-transform duration-500 ease-linear -top-24 -left-24`}
         >
-          <div className="close" onClick={handleCloseNav}>
+          <div className="close cursor-pointer" onClick={handleCloseNav}>
             <FontAwesomeIcon icon={faXmark} className="text-white h-8" />
           </div>
 
-          <div className="Open" onClick={handleOpenNav}>
+          <div className="Open cursor-pointer" onClick={handleOpenNav}>
             <FontAwesomeIcon icon={faBars} className="text-white h-8" />
           </div>
         </div>
 
-        <div className="fixed bottom-10 z-10 -left-28">
+        <div className="fixed bottom-10 z-10 -left-32">
           <nav>
             <ul>
               <li
@@ -104,7 +104,7 @@ const AnimatedNav = () => {
               <li
                 className={`${
                   showNav ? "translate-x-48 delay-500" : "translate-x-0"
-                }  text-white hover:text-[#f14536] transition-all duration-300 cursor-pointer flex items-center ease-out  mb-8`}
+                }  text-white hover:text-[#f14536] transition-all duration-300 cursor-pointer flex items-center ease-out mb-8`}
               >
                 <FontAwesomeIcon icon={faAddressBook} className="h-6" />
                 <span className="uppercase ml-2 font-bold text-xl">Contact</span>
