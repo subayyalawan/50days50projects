@@ -19,8 +19,6 @@ const ChoicePicker = () => {
       // to remove space in side the values
       .map((tag) => tag.trim());
 
-    // choicesRef.current = Array.from({length: tags.length}, (_, index)=>choicesRef.current[index] || null)
-
     setChoices(tags);
 
     if (e.key === "Enter") {
@@ -28,15 +26,6 @@ const ChoicePicker = () => {
         setRandomChoice("");
       }, 300);
 
-      // setRandomChoice((prevRandomChoice) => {
-      //   setTimeout(() => {
-      //     if (prevRandomChoice === randomChoice) {
-      //       setRandomChoice("");
-      //       randomSelect();
-      //     }
-      //   }, 300);
-      //   return prevRandomChoice;
-      // });
       randomSelect();
     }
   };
@@ -60,9 +49,6 @@ const ChoicePicker = () => {
 
       setTimeout(() => {
         const randomChoice = pickRandomLi();
-
-        // console.log(randomChoice);
-
         hightlightFunction(randomChoice);
       }, int);
     }, int * times);
@@ -72,11 +58,9 @@ const ChoicePicker = () => {
     return choicesRef.current[
       Math.floor(Math.random() * choicesRef.current.length)
     ];
-    // console.log(Math.floor(Math.random() * choicesRef.current.length));
   };
 
   const hightlightFunction = (tag) => {
-    // setHightlight(true);
     tag.classList.add("bg-[#f14536]");
     tag.classList.add("text-white");
     tag.classList.remove("bg-white");
@@ -84,7 +68,6 @@ const ChoicePicker = () => {
   };
 
   const unhightlightFunction = (tag) => {
-    // setHightlight(true);
     tag.classList.remove("bg-[#f14536]");
     tag.classList.remove("text-white");
     tag.classList.add("bg-white");
@@ -118,7 +101,6 @@ const ChoicePicker = () => {
         {choices.map((choice, index) => {
           return (
             <li
-              // ref={AddToRefs}
               ref={(ele) => (choicesRef.current[index] = ele)}
               key={index}
               className="px-5 py-2 rounded-xl font-semibold shadow-lg capitalize bg-white text-gray-900"
@@ -127,9 +109,6 @@ const ChoicePicker = () => {
             </li>
           );
         })}
-        {/* <li className="bg-white px-5 py-2 rounded-xl font-semibold shadow-lg capitalize">
-          hello
-        </li> */}
       </ul>
     </div>
   );

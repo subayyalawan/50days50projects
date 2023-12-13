@@ -26,7 +26,7 @@ const App = () => {
   );
   return (
     <>
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-gray-100 overflow-hidden">
         <RouterProvider router={router} />
       </div>
     </>
