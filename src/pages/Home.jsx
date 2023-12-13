@@ -23,6 +23,12 @@ const Home = () => {
           </li>
         </Link>
 
+        <Link to="/Drag-N-Drop">
+          <li className="capitalize bg-white px-4 py-2 rounded-xl font-semibold hover:bg-[#f14536] hover:text-white transition-all duration-150 shadow-lg cursor-pointer">
+            Drag And Drop Images
+          </li>
+        </Link>
+
 
       </ul>
     </>
