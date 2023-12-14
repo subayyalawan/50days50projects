@@ -5,7 +5,6 @@ const ChoicePicker = () => {
   const [choices, setChoices] = useState([]);
   const choicesRef = useRef([]);
 
-  const [hightlight, setHightlight] = useState(false);
 
   const createTags = (e) => {
     const tags = randomChoice
@@ -75,7 +74,7 @@ const ChoicePicker = () => {
   };
 
   return (
-    <div className="flex items-center flex-col">
+    <div className="flex items-center flex-col justify-center min-h-screen">
       <h1 className="pt-20 text-3xl font-bold capitalize text-center text-[#f14536]">
         Welcome to Random Choice Picker
       </h1>
@@ -97,7 +96,7 @@ const ChoicePicker = () => {
         onKeyDown={createTags}
       ></textarea>
 
-      <ul className="tags flex flex-wrap w-2/5 gap-6 mt-10 justify-center">
+      <ul className="tags flex flex-wrap w-2/5 gap-6 mt-10 justify-center min-h-[40px]">
         {choices.map((choice, index) => {
           return (
             <li

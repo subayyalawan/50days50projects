@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <>
-      <h1 className="pt-20 text-3xl font-bold capitalize text-center text-[#f14536]">
-        Welcome to my 50 days 50 projects challenge
+    <div className="flex justify-center items-center flex-col min-h-screen">
+
+      <h1 className="text-6xl font-bold capitalize text-center text-[#f14536]">
+        Hello! <br />
       </h1>
+      <h2 className="pt-10 text-3xl font-bold capitalize text-center text-[#f14536]">
+        Welcome to my 50 days 50 projects challenge
+      </h2>
       <p className="text-center text-lg mt-3 text-gray-900">
         These are the projetcs that i have done so far
       </p>
@@ -31,7 +35,7 @@ const Home = () => {
 
 
       </ul>
-    </>
+    </div>
   );
 };
 
