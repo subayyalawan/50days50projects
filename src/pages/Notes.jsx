@@ -13,7 +13,7 @@ const Notes = () => {
           already created notes
         </p>
 
-        <button className="bg-[#f14536] text-white px-6 py-2 rounded-md my-6 hover:text-[#f14536] hover:bg-white shadow-lg font-semibold">
+        <button className="bg-[#f14536] text-white px-6 py-2 rounded-md my-6 hover:text-[#f14536] hover:bg-white shadow-lg font-semibold cursor-pointer transition-all duration-100">
           Add Note
         </button>
       </div>
