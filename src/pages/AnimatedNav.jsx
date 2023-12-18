@@ -20,11 +20,13 @@ const AnimatedNav = () => {
 
   return (
     <div>
-      <div className="bg-gray-800">
+      <div className="bg-gray-800 min-h-screen">
+
+        {/* for blog data with the dog picture in it */}
         <div
           className={` ${
             showNav ? "rotate-[-20deg]" : "rotate-[0deg]"
-          } wrapper origin-top-left transition-transform duration-500 ease-linear bg-gray-100`}
+          } wrapper origin-top-left transition-transform duration-500 ease-linear bg-gray-100 min-h-screen`}
         >
           <div className="container mx-auto">
             <div className=" w-3/5 mx-auto py-14">
@@ -67,6 +69,7 @@ const AnimatedNav = () => {
           </div>
         </div>
 
+          {/* for circle nav on top with hamburger and cross */}
         <div
           className={`${
             showNav ? "rotate-[-90deg]" : "rotate-[0deg]"
@@ -82,6 +85,7 @@ const AnimatedNav = () => {
           </div>
         </div>
 
+          {/* for nav menu thats appears when clicked on the hamburger */}
         <div className="fixed bottom-10 z-10 -left-32">
           <nav>
             <ul>
