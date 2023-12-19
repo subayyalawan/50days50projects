@@ -1,6 +1,6 @@
 {
   "name": "09.50days50projects",
-  "homepage": ".",
+  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
