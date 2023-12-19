@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import AnimatedNav from "./pages/AnimatedNav";
 import DragNDrop from "./pages/DragNDrop";
 import Notes from "./pages/Notes";
-import ToDoList from "./pages/ToDoList";
+import QuizApp from "./pages/QuizApp";
 
 const App = () => {
   // const naviagte = useNavigate();
@@ -26,7 +26,7 @@ const App = () => {
         <Route path="Animated-Navigatiton" element={<AnimatedNav />} />
         <Route path="Drag-N-Drop" element={<DragNDrop />} />
         <Route path="Notes" element={<Notes />} />
-        <Route path="ToDoList" element={<ToDoList />} />
+        <Route path="QuizApp" element={<QuizApp />} />
       </Route>
     )
   );

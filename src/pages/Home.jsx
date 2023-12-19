@@ -39,9 +39,9 @@ const Home = () => {
           </li>
         </Link>
 
-        <Link to="/ToDoList">
+        <Link to="/QuizApp">
           <li className="capitalize bg-white px-4 py-2 rounded-xl font-semibold hover:bg-[#f14536] hover:text-white transition-all duration-150 shadow-lg cursor-pointer">
-            To Do List
+            Quiz App
           </li>
         </Link>
 
