@@ -31,13 +31,13 @@ const Notes = () => {
           Welcome to Crud Notes
         </h1>
 
-        <p className="text-center text-lg mt-3 text-gray-900 font-semibold">
+        <p className="text-center text-lg mt-3 text-gray-900 font-semibold capitalize">
           Click on Add Note to add new Note, and click on edit icon to edit
           already created notes
         </p>
 
         <button
-          className="bg-[#f14536] text-white px-6 py-2 rounded-md my-6 hover:text-[#f14536] hover:bg-white shadow-lg font-semibold cursor-pointer transition-all duration-100"
+          className="bg-[#f14536] text-white px-20 py-3 rounded-md my-6 hover:text-[#f14536] hover:bg-white shadow-lg font-semibold cursor-pointer transition-all duration-100"
           onClick={handleAddNote}
         >
           Add Note
